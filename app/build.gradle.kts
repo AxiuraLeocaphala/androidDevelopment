@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     id("org.jetbrains.kotlin.android") version ("2.1.0")
     id("kotlin-kapt")
-    id("com.google.devtools.ksp")
+    id("com.google.devtools.ksp") version("2.1.0-1.0.29")
 }
 
 android {
@@ -41,6 +41,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     val roomVersion = "2.6.1"
     val moshiVersion = "1.15.1"
     val retrofitVersion = "2.10.0"
