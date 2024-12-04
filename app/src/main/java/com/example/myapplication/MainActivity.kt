@@ -1,4 +1,4 @@
-package com.example.myapplication1
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data1.RepositoryImpl
 import com.example.module.Repository
 import com.example.myapplication.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -16,10 +20,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val data = repository.getData()
-        val adapter = ProductAdapter(data)
-
-        binding.recyclerViewProducts.adapter = adapter
-        binding.recyclerViewProducts.layoutManager = LinearLayoutManager(this)
+        CoroutineScope(Dispatchers.IO).launch {
+            val data = repository.getProduct()
+            withContext(Dispatchers.Main) {
+                val adapter = ProductAdapter(data)
+                binding.recyclerViewProducts.adapter = adapter
+                binding.recyclerViewProducts.layoutManager = LinearLayoutManager(this@MainActivity)
+            }
+        }
     }
 }

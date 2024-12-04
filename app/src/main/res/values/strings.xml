@@ -2,6 +2,7 @@
     <string name="app_name">My Application1</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
+    <string name="product_id">ID продукта</string>
     <string name="product_name">Название продукта</string>
-    <string name="count">Количество</string>
+    <string name="product_price">Стоимость</string>
 </resources>

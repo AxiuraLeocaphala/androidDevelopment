@@ -1,5 +1,5 @@
 package com.example.module
 
 interface Repository {
-    fun getData(): List<Product>
+    suspend fun getProduct(): List<Product>
 }

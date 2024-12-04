@@ -1,4 +1,4 @@
-package com.example.myapplication1
+package com.example.myapplication
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,8 +14,9 @@ class ProductAdapter(
         private val binding: ItemProductBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Product) {
-            binding.titleName.text = item.name
-            binding.titleCount.text = item.count.toString()
+            binding.titleId.text = item.id.toString()
+            binding.titleName.text = item.title
+            binding.titleCount.text = item.price.toString()
         }
     }
 

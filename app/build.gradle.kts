@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
-    id("org.jetbrains.kotlin.android") version ("2.1.0")
     id("kotlin-kapt")
+    id("org.jetbrains.kotlin.android") version ("2.1.0")
     id("com.google.devtools.ksp") version("2.1.0-1.0.29")
 }
 
@@ -62,8 +62,8 @@ dependencies {
     androidTestImplementation("android.arch.persistence.room:testing:1.1.1")
 
     //moshi
-    implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
     implementation("com.squareup.moshi:moshi:$moshiVersion")
+    implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion")
 
     implementation(libs.androidx.core.ktx)

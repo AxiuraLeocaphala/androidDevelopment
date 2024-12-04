@@ -1,14 +1,11 @@
 package com.example.data1
 
+import com.example.data1.api.ProductClient
 import com.example.module.Product
 import com.example.module.Repository
 
 class RepositoryImpl : Repository {
-    override fun getData(): List<Product> {
-        return listOf(
-            Milk(count = 5),
-            Bread(count = 10),
-            Butter(count = 1)
-        )
+    override suspend fun getProduct(): List<Product> {
+        return ProductClient.client.fetchProductList()
     }
 }
