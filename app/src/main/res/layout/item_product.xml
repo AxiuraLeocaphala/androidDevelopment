@@ -20,7 +20,7 @@
         android:id="@+id/title_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="15px"
+        android:paddingHorizontal="15dp"
         android:text="@string/product_name"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/title_price"
