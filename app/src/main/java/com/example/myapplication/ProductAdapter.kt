@@ -16,7 +16,7 @@ class ProductAdapter(
         fun bind(item: Product) {
             binding.titleId.text = item.id.toString()
             binding.titleName.text = item.title
-            binding.titleCount.text = item.price.toString()
+            binding.titlePrice.text = item.price.toString()
         }
     }
 
