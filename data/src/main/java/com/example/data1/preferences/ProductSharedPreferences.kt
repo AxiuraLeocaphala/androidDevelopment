@@ -10,7 +10,7 @@ class ProductSharedPreferences {
         private lateinit var preferences: SharedPreferences
         private lateinit var editor: SharedPreferences.Editor
 
-        fun initPrefetences(context: Context) {
+        fun initPreferences(context: Context) {
             preferences = context.getSharedPreferences("Products", Context.MODE_PRIVATE)
             editor = preferences.edit()
         }

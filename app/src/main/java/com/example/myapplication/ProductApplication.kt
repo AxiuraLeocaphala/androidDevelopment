@@ -8,7 +8,6 @@ class ProductApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         AppDatabase.initDB(applicationContext)
-//        Инициализируем ProductSharedPreferences
-        ProductSharedPreferences.initPrefetences(applicationContext)
+        ProductSharedPreferences.initPreferences(applicationContext)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.data1.api.model
 
+import com.example.data1.db.entities.ProductEntity
 import com.example.module.Product
 import com.squareup.moshi.Json
 
@@ -12,4 +13,8 @@ data class ProductApi(
 
     @Json(name = "price")
     override val price: Double
-) : Product
+) : Product {
+    fun toProductEntity() : ProductEntity {
+        return ProductEntity(id, title, price)
+    }
+}
