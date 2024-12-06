@@ -1,5 +1,7 @@
 package com.example.module
 
 interface Repository {
-    suspend fun getProduct(): List<Product>
+    suspend fun insertProducts()
+    suspend fun getProducts(): List<Product>
+    suspend fun getCurrentDayOfMonth(): String
 }

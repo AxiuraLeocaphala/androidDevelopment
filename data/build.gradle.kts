@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     id("kotlin-kapt")
-    id("org.jetbrains.kotlin.android") version "2.1.0"
+    id("org.jetbrains.kotlin.android") version "2.0.0"
 }
 
 android {
@@ -41,6 +41,8 @@ dependencies {
     val retrofitVersion = "2.10.0"
     val okhttp3Version = "4.12.0"
 
+    implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
+
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
@@ -52,6 +54,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     androidTestImplementation("android.arch.persistence.room:testing:1.1.1")
+
 
     //moshi
     implementation("com.squareup.moshi:moshi:$moshiVersion")

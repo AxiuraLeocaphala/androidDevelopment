@@ -16,5 +16,5 @@ object ProductClient {
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 
-    val client = retrofit.create(ProductServer::class.java)
+    val client = retrofit.create(ProductService::class.java)
 }

@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     id("kotlin-kapt")
-    id("org.jetbrains.kotlin.android") version ("2.1.0")
-    id("com.google.devtools.ksp") version("2.1.0-1.0.29")
+    id("org.jetbrains.kotlin.android") version ("2.0.0")
+    id("com.google.devtools.ksp") version("2.0.0-1.0.22")
 }
 
 android {
@@ -48,6 +48,8 @@ dependencies {
     val moshiVersion = "1.15.1"
     val retrofitVersion = "2.10.0"
     val okhttp3Version = "4.12.0"
+
+    implementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
