@@ -11,10 +11,15 @@ class RepositoryImpl : Repository {
     private val db = AppDatabase.db
     private val productSharedPreferences = ProductSharedPreferences()
 
-    override suspend fun insertProducts() {
+    private suspend fun insertProducts(): List<Product> {
         val data = ProductClient.client.fetchProductList()
         val convertedData = data.map { it.toProductEntity() }
         db.productDao().insertAll(convertedData)
+        return data
+    }
+
+    private fun getCurrentDayOfMonth(): String {
+        return LocalDate.now().dayOfMonth.toString()
     }
 
     override suspend fun getProducts(): List<Product> {
@@ -22,14 +27,10 @@ class RepositoryImpl : Repository {
         val lastDay = productSharedPreferences.getLastDate()
 
         if(currentDayOfMonth != lastDay) {
-            this.insertProducts()
             productSharedPreferences.saveDate(currentDayOfMonth)
+            return this.insertProducts()
         }
 
         return db.productDao().getAll()
-    }
-
-    override suspend fun getCurrentDayOfMonth(): String {
-        return LocalDate.now().dayOfMonth.toString()
     }
 }
